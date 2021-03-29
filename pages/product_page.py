@@ -17,14 +17,14 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE_OF_ADDING), "There are no any success-message of product adding"
         print("Product was added")
 
-    def do_titles_are_equal(self):
+    def are_titles_equal(self):
         assert self.is_element_present(*ProductPageLocators.NAME_OF_PRODUCT_IN_BASKET), "There are no any product name in basket"
         product_name_in_basket = self.browser.find_element(*ProductPageLocators.NAME_OF_PRODUCT_IN_BASKET).text
         product_name_in_title = self.browser.find_element(*ProductPageLocators.NAME_OF_PRODUCT_IN_TITLE).text
         assert product_name_in_title == product_name_in_basket, "Titles are not equal"
         print("Titles are equal")
 
-    def do_prices_are_equal(self):
+    def are_prices_equal(self):
         assert self.is_element_present(*ProductPageLocators.PRICE_OF_PRODUCT_IN_BASKET), "There are no any price in basket"
         price_in_title = self.browser.find_element(*ProductPageLocators.PRICE_OF_PRODUCT_IN_TITLE).text
         print(f"Product price:{price_in_title}")
