@@ -8,7 +8,7 @@ class BasketPage(BasePage):
         assert "/basket/" in self.browser.current_url, "No such login url"
 
     def items_in_basket_are_not_present(self):
-        assert self.is_not_element_peresent(*BasketPageLocators.BASKET_ITEMS), "There are items in basket"
+        assert self.is_not_element_present(*BasketPageLocators.BASKET_ITEMS), "There are items in basket"
         print("There are no any items in basket")
 
     def is_basket_empty(self):

@@ -10,7 +10,6 @@ class BasePage():
     def __init__(self, browser, link, timeout=10):
         self.browser = browser
         self.link = link
-        #self.browser.implicitly_wait(timeout)
 
     def go_to_login_page(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
@@ -29,7 +28,7 @@ class BasePage():
             return False
         return True
 
-    def is_not_element_peresent(self, how, what, timeout=4):
+    def is_not_element_present(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         except TimeoutException:

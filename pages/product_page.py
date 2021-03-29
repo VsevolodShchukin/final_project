@@ -13,7 +13,7 @@ class ProductPage(BasePage):
         btn_cart.click()
         print("Button was clicked")
 
-    def successfully_adding_product_is_present(self):
+    def message_of_adding_product_is_present(self):
         assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE_OF_ADDING), "There are no any success-message of product adding"
         print("Product was added")
 
@@ -32,11 +32,11 @@ class ProductPage(BasePage):
         assert price_in_title == price_in_basket, f"Prices are not equal. Expected: {price_in_title}, actual: {price_in_basket}"
         print("Prices are equal")
 
-    def successfully_message_of_adding_product_is_not_present(self):
-        assert self.is_not_element_peresent(*ProductPageLocators.SUCCESS_MESSAGE_OF_ADDING), "There is success-message of product adding"
+    def message_of_adding_product_is_not_present(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE_OF_ADDING), "There is success-message of product adding"
         print("There are no any success-message of product adding")
 
-    def successfully_message_of_adding_product_is_disappeared(self):
+    def message_of_adding_product_is_disappeared(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE_OF_ADDING), "Success-message of product adding is not disappeared"
         print("Success-message of product adding is disappeared")
 
@@ -47,18 +47,18 @@ class ProductPageScripts(ProductPage):
         self.open_browser()
         self.add_to_cart_is_present()
         self.add_to_cart()
-        self.successfully_message_of_adding_product_is_not_present()
+        self.message_of_adding_product_is_not_present()
 
     def test_guest_cant_see_success_message(self):
         self.open_browser()
         self.add_to_cart_is_present()
-        self.successfully_message_of_adding_product_is_not_present()
+        self.message_of_adding_product_is_not_present()
 
     def test_message_disappeared_after_adding_product_to_basket(self):
         self.open_browser()
         self.add_to_cart_is_present()
         self.add_to_cart()
-        self.successfully_message_of_adding_product_is_disappeared()
+        self.message_of_adding_product_is_disappeared()
 
 
 
